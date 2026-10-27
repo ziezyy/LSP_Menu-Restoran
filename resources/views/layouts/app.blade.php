@@ -25,7 +25,13 @@
             color: #2b2320;
         }
 
-        h1, h2, h3, h4, h5, h6, .navbar-brand {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand {
             font-family: 'Playfair Display', serif;
         }
 
@@ -66,7 +72,8 @@
             border-color: var(--resto-brown);
         }
 
-        .btn-primary:hover, .btn-primary:focus {
+        .btn-primary:hover,
+        .btn-primary:focus {
             background-color: var(--resto-dark);
             border-color: var(--resto-gold);
         }
@@ -82,40 +89,36 @@
         }
 
         /* Kartu dashboard bertema elegant */
-        .card-elegant-1 {
-            background: linear-gradient(135deg, var(--resto-dark), var(--resto-brown));
-            color: #f7f2ea;
-        }
-
-        .card-elegant-2 {
-            background: linear-gradient(135deg, var(--resto-brown), var(--resto-brown-light));
-            color: #f7f2ea;
-        }
-
-        .card-elegant-3 {
-            background: linear-gradient(135deg, #7a5c1e, var(--resto-gold));
-            color: #1a1410;
-        }
-
-        .card-elegant-4 {
-            background: linear-gradient(135deg, #4a4038, #6b5d4f);
-            color: #f7f2ea;
-        }
-
+        .card-elegant-1,
+        .card-elegant-2,
+        .card-elegant-3,
+        .card-elegant-4,
         .card-elegant-5 {
-            background: linear-gradient(135deg, var(--resto-brown-light), #8d6e63);
-            color: #f7f2ea;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .card-elegant-1 .btn, .card-elegant-2 .btn, .card-elegant-4 .btn, .card-elegant-5 .btn {
+        .card-elegant-1:hover,
+        .card-elegant-2:hover,
+        .card-elegant-3:hover,
+        .card-elegant-4:hover,
+        .card-elegant-5:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-elegant-1 .btn,
+        .card-elegant-2 .btn,
+        .card-elegant-4 .btn,
+        .card-elegant-5 .btn {
             background-color: var(--resto-gold-light);
             color: var(--resto-dark);
             border: none;
         }
 
         .card-elegant-3 .btn {
-            background-color: var(--resto-dark);
-            color: var(--resto-gold-light);
+            background-color: var(--resto-gold-light);
+            color: var(--resto-dark);
             border: none;
         }
 
@@ -166,7 +169,7 @@
                 </ul>
 
                 <div class="d-flex align-items-center">
-                    <span class="text-white me-3">Halo, {{ auth()->user()->name }}</span>
+                    <span class="text-white me-3">Halo,{{ auth()->user()->name }} </span>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button class="btn btn-outline-light btn-sm">Logout</button>

@@ -10,7 +10,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-start">
             <div>
-                <h6 class="mb-1">Pesanan #{{ $item->id }}</h6>
+                <h6 class="mb-1">Pesanan {{ $item->id }}</h6>
                 <p class="small text-muted mb-2">{{ $item->created_at->translatedFormat('d M Y, H:i') }}</p>
             </div>
             <span class="badge bg-{{ $item->status === 'diterima' ? 'success' : ($item->status === 'ditolak' ? 'danger' : ($item->status === 'selesai' ? 'secondary' : 'warning')) }}">

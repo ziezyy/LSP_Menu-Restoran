@@ -10,8 +10,14 @@
 @else
 <form action="{{ route('pelanggan.pesanan.store') }}" method="POST">
     @csrf
-
-    <div class="row g-3">
+    <form action="{{ route('pelanggan.menu.index') }}" method="GET" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Cari nama menu...">
+            <button class="btn btn-primary" type="submit">Cari</button>
+        </div>
+    </form>
+    
+    <div class="row g-3 mt-3">
         @foreach ($menu as $item)
         <div class="col-md-4">
             <div class="card shadow-sm h-100">

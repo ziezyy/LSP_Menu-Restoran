@@ -38,19 +38,47 @@
 
 @php
 if (auth()->guest()) {
-        $linkMenu = route('login');
-    } elseif (auth()->user()->role === 'admin') {
-        $linkMenu = route('admin.menu.index');
-    } elseif (auth()->user()->status === 'accepted') {
-        $linkMenu = route('pelanggan.menu.index');
-    } else {
-    $linkMenu = route('pelanggan.status-akun');
+$linkMenu = route('login');
+} elseif (auth()->user()->role === 'admin') {
+$linkMenu = route('admin.menu.index');
+} elseif (auth()->user()->status === 'accepted') {
+$linkMenu = route('pelanggan.menu.index');
+} else {
+$linkMenu = route('pelanggan.status-akun');
 }
 @endphp
 
 <div class="text-center mb-4">
     <p class="text-uppercase small mb-1" style="letter-spacing: 2px; color: var(--resto-gold);">Menu Pilihan</p>
     <h2>Hidangan Spesial Kami</h2>
+</div>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+        <form action="{{ route('home') }}" method="GET">
+            <div class="input-group">
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control"
+                    placeholder="Cari menu favorit Anda..."
+                    value="{{ request('search') }}">
+
+                <button class="btn"
+                    type="submit"
+                    style="background: var(--resto-gold-light); color: var(--resto-dark);">
+                    <i class="fas fa-search"></i> Cari
+                </button>
+
+                @if(request('search'))
+                <a href="{{ route('home') }}"
+                    class="btn btn-outline-secondary">
+                    Reset
+                </a>
+                @endif
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="row g-4 mb-5">
@@ -80,7 +108,7 @@ if (auth()->guest()) {
         <p class="text-muted">Kami menghadirkan pengalaman bersantap terbaik dengan bahan-bahan pilihan dan resep yang diracik penuh cinta oleh para chef berpengalaman kami.</p>
     </div>
     <div class="col-md-6 text-center">
-        <img src="{{ asset('images/hero-bg.jpg') }}" class="img-fluid rounded-3" alt="Suasana Restoran" style="max-height: 260px; object-fit: cover;">
+        <img src="{{ asset('images/hero-bg.jpg') }}" class="img-fluid rounded-4" alt="Suasana Restoran" style="max-height: 350px; object-fit: cover;">
     </div>
 </div>
 @endsection
